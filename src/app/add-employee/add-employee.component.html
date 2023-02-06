@@ -1,0 +1,33 @@
+<!-- <form class="p-5 text-center" [formGroup]="adingData" (ngSubmit)="addData(adingData.value)">
+  <div class="form-Group form-outline mb-4 ">
+    <input formControlName="firstName" type="text" class="form-control" placeholder="firstName" />
+  </div>
+  <div class="form-Group form-outline mb-4 ">
+    <input formControlName="lastName" type="text"  class="form-control" placeholder="lastName"/>
+  </div>
+  <div class="form-Group form-outline mb-4 ">
+    <input formControlName="maidenName" type="text" class="form-control" placeholder="maidenName" />
+  </div>
+  <button type="submit" class="btn btn-primary btn-block">Submit Data</button>
+</form> -->
+<form class="p-5 text-center" #employeeForm="ngForm" (ngSubmit)="addData(employeeForm.value)" >
+  <h3 class="text-center">Edit Employee Data</h3>
+  <br>
+  <div class="form-outline mb-4">
+    <input type="firstName" id="form1Example1" class="form-control" placeholder="firstName" [ngModel]="adingData.firstName" name="firstName" />
+  </div>
+  <div class="form-outline mb-4">
+    <input type="lastName" id="form1Example2" class="form-control" placeholder="lastName" [ngModel]="adingData.lastName" name="lastName"  />
+  </div>
+  <div class="form-outline mb-4">
+    <input type="maidenName" id="form1Example2" class="form-control" placeholder="maidenName" [ngModel]="adingData.maidenName" name="maidenName"  />
+  </div>
+  <div class="form-outline mb-4">
+    <input type="age" id="form1Example2" class="form-control" placeholder="age" [ngModel]="adingData.age" name="age"  />
+  </div>
+  <div class="form-outline mb-4">
+    <input type="gender" id="form1Example2" class="form-control" placeholder="gender" [ngModel]="adingData.gender" name="gender"  />
+  </div>
+
+  <button type="submit" class="btn btn-primary btn-block">Submit Data</button>
+</form>
