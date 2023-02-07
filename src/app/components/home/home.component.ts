@@ -13,7 +13,7 @@ import { EditEmployeeComponent } from 'src/app/edit-employee/edit-employee.compo
 export class HomeComponent implements OnInit{
 addData:user['users']=[];
 newEditData:user['users']=[];
-displayedColumns: string[] = ['id', 'firstName','lastName', 'maidenName','age','gender','Action','Action1'];
+displayedColumns: string[] = ['id','image','firstName','lastName', 'maidenName','age','gender','Action','Action1'];
 employee : user['users']=[];
 dataSource = this.employee;
 
@@ -35,11 +35,15 @@ constructor(public dialog:MatDialog, private employeeService:EmployeeService){
 }
 findUserByName(name:HTMLInputElement){
 this.applyFilter(name.value);
+console.log(this.applyFilter);
+
 }
 applyFilter(filterValue : string) {
 filterValue = filterValue.trim();
 filterValue = filterValue.toLowerCase();
 this.dataSource['users'].filter = filterValue;
+console.log(this.dataSource);
+
   // const filterValue = (event.target as HTMLInputElement).value;
   // this.dataSource.filter = filterValue.trim().toLowerCase();
 }
@@ -48,6 +52,7 @@ this.dataSource['users'] = this.dataSource['users'].filter((val:any) => val.id !
 }
  editData(data:Element){
  this.dialog.open(EditEmployeeComponent,{
+  height:'500px',
   data
  });
   }
