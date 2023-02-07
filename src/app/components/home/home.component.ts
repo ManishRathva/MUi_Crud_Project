@@ -13,6 +13,7 @@ import { MatSort } from '@angular/material/sort';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit{
+
 displayedColumns: string[] = ['id','image','firstName','lastName', 'maidenName','age','gender','Action'];
 employee:user['users']=[];
 dataSource = this.employee;
@@ -36,7 +37,7 @@ constructor(public dialog:MatDialog, private employeeService:EmployeeService){
    const dialogRef = this.dialog.open(AddEmployeeComponent)
    dialogRef.afterClosed().subscribe((result:any)=>{
    this.dataSource['users'].data.unshift(result);
-  });
+});
   }
 findUserByName(name : HTMLInputElement){
 this.applyFilter(name.value);
@@ -55,7 +56,6 @@ val.id !== id);
   data
  });
   }
-
 }
 
 

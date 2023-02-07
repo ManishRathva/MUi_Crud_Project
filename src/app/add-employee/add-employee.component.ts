@@ -11,8 +11,8 @@ import { user } from '../userdata';
   styleUrls: ['./add-employee.component.css']
 })
 export class AddEmployeeComponent implements OnInit {
- url = '';
-adingData:user['users'] = []
+url = '';
+adingData:user['users'] = [];
 constructor(private dialogRef:MatDialogRef<HomeComponent> ,private employeeService:EmployeeService){}
 ngOnInit(): void {
 
