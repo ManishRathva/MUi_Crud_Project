@@ -13,7 +13,7 @@ import { MatSort } from '@angular/material/sort';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit{
-displayedColumns: string[] = ['id','image','firstName','lastName', 'maidenName','age','gender','Action','Action1'];
+displayedColumns: string[] = ['id','image','firstName','lastName', 'maidenName','age','gender','Action'];
 employee:user['users']=[];
 dataSource = this.employee;
 

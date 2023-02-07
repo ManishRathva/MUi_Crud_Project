@@ -2,7 +2,23 @@
 .btn{
   float: right;
   margin-right:20px;
+  margin-bottom: 10px;
 }
 .demo-paginator {
   width: 600px;
+}
+.mat-mdc-form-field {
+  margin:3px;
+  font-size: 14px;
+  width: 100%;
+}
+th{
+ font-weight: 900;
+ font-size: large;
+ font-family: Georgia, 'Times New Roman', Times, serif;
+}
+td{
+  color:blue;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 900;
 }
