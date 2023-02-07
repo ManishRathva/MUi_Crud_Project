@@ -11,12 +11,14 @@ import { user } from '../userdata';
   styleUrls: ['./add-employee.component.css']
 })
 export class AddEmployeeComponent implements OnInit {
+ url = '';
 adingData:user['users'] = []
 constructor(private dialogRef:MatDialogRef<HomeComponent> ,private employeeService:EmployeeService){}
 ngOnInit(): void {
 
 }
 addData(data:any){
+  this.adingData.image = this.url;
   this.adingData.firstName = data.firstName;
   this.adingData.lastName = data.lastName;
   this.adingData.maidenName = data.maidenName;
@@ -24,4 +26,13 @@ addData(data:any){
   this.adingData.gender = data.gender;
   this.dialogRef.close(this.adingData);
  }
+ onselectFile(e: any) {
+  if (e.target.files) {
+    let reader = new FileReader();
+    reader.readAsDataURL(e.target.files[0]);
+    reader.onload = (event: any) => {
+    this.url = event.target.result;
+    };
+  }
+}
 }

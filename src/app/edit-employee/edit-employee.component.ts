@@ -30,7 +30,6 @@ export class EditEmployeeComponent implements OnInit {
       reader.readAsDataURL(e.target.files[0]);
       reader.onload = (event: any) => {
       this.url = event.target.result;
-      console.log(this.url);
     };
     }
   }

@@ -1,24 +1,30 @@
-<!-- <form class="p-5 text-center" [formGroup]="adingData" (ngSubmit)="addData(adingData.value)">
-  <div class="form-Group form-outline mb-4 ">
-    <input formControlName="firstName" type="text" class="form-control" placeholder="firstName" />
-  </div>
-  <div class="form-Group form-outline mb-4 ">
-    <input formControlName="lastName" type="text"  class="form-control" placeholder="lastName"/>
-  </div>
-  <div class="form-Group form-outline mb-4 ">
-    <input formControlName="maidenName" type="text" class="form-control" placeholder="maidenName" />
-  </div>
-  <button type="submit" class="btn btn-primary btn-block">Submit Data</button>
-</form> -->
-<form class="p-5 text-center" #employeeForm="ngForm" (ngSubmit)="addData(employeeForm.value)" >
-  <h3 class="text-center">Edit Employee Data</h3>
+
+<div class="mx-2 mt-1">
+  <button class="Close" type="button" class="btn-close"  mat-dialog-close></button>
+</div>
+<div class="text-center">
+  <h3>Add Employee Data</h3>
+</div>
+<form class="p-3 m-0 text-center" #employeeForm="ngForm" (ngSubmit)="addData(employeeForm.value)" >
   <br>
+  <div>
+    <img class="addimg" [src]="url" />
+  </div>
+  <div class="form-outline mb-4">
+    <input type="file" class="form-control"  (change)="onselectFile($event)" placeholder="firstName" ngModel name="image" />
+  </div>
+  <div class="row">
+    <div class="col">
   <div class="form-outline mb-4">
     <input type="firstName" id="form1Example1" class="form-control" placeholder="firstName" [ngModel]="adingData.firstName" name="firstName" />
   </div>
-  <div class="form-outline mb-4">
+</div>
+<div class="col">
+  <div class="form-outline">
     <input type="lastName" id="form1Example2" class="form-control" placeholder="lastName" [ngModel]="adingData.lastName" name="lastName"  />
   </div>
+</div>
+</div>
   <div class="form-outline mb-4">
     <input type="maidenName" id="form1Example2" class="form-control" placeholder="maidenName" [ngModel]="adingData.maidenName" name="maidenName"  />
   </div>

@@ -1,28 +1,33 @@
 
-<form class="p-5 text-center" #employeeForm="ngForm" (ngSubmit)="onSubmit(employeeForm.value)" >
-  <button type="button"class="btn-close"data-bs-dismiss="modal"aria-label="Close"
-></button>
+  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" mat-dialog-close></button>
+<form class="p-3 text-center" #employeeForm="ngForm" (ngSubmit)="onSubmit(employeeForm.value)" >
   <h3 class="text-center">Edit Employee Data</h3>
   <br>
   <div>
-    <img [src]="url" height="100px" width="100px" />
+    <img class="adimg" [src]="editData.image"/>
   </div>
-  <div class="form-outline mb-4">
-    <input type="file"  class="form-control" (change)="onselectFile($event)" placeholder="image" [ngModel]="url" name="image" />
+  <div class="form-outline mb-3">
+    <input type="file"  class="form-control" (change)="onselectFile($event)" placeholder="image" name="image" />
   </div>
-  <div class="form-outline mb-4">
+  <div class="row">
+  <div class="col">
+  <div class="form-outline mb-3">
     <input type="firstName"  class="form-control" placeholder="firstName" [ngModel]="editData.firstName" name="firstName" />
   </div>
-  <div class="form-outline mb-4">
+</div>
+<div class="col">
+  <div class="form-outline mb-3">
     <input type="lastName"  class="form-control" placeholder="lastName" [ngModel]="editData.lastName" name="lastName"  />
   </div>
-  <div class="form-outline mb-4">
+</div>
+</div>
+  <div class="form-outline mb-3">
     <input type="maidenName"  class="form-control" placeholder="maidenName" [ngModel]="editData.maidenName" name="maidenName"  />
   </div>
-  <div class="form-outline mb-4">
+  <div class="form-outline mb-3">
     <input type="age"  class="form-control" placeholder="maidenName" [ngModel]="editData.age" name="age"  />
   </div>
-  <div class="form-outline mb-4">
+  <div class="form-outline mb-3">
     <input type="gender"  class="form-control" placeholder="maidenName" [ngModel]="editData.gender" name="gender"  />
   </div>
    <button type="submit" class="btn btn-primary btn-block">Submit Data</button>
