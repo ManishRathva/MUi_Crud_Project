@@ -36,8 +36,11 @@ constructor(public dialog:MatDialog, private employeeService:EmployeeService){
  openDialog(){
    const dialogRef = this.dialog.open(AddEmployeeComponent)
    dialogRef.afterClosed().subscribe((result:any)=>{
-   this.dataSource['users'].data.unshift(result);
-});
+    if(result ===''){
+    }else{
+      this.dataSource['users'].data.unshift(result);
+    }
+  });
   }
 findUserByName(name : HTMLInputElement){
 this.applyFilter(name.value);

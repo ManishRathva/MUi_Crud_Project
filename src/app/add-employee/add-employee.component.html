@@ -1,10 +1,4 @@
-
-<div class="mx-2 mt-1">
-  <button class="Close" type="button" class="btn-close"  mat-dialog-close></button>
-</div>
-<div class="text-center">
-  <h3>Add Employee Data</h3>
-</div>
+<h3 mat-dialog-title class="text-center">Add Empoyee Data</h3>
 <form class="p-3 m-0 text-center" #employeeForm="ngForm" (ngSubmit)="addData(employeeForm.value)" >
   <br>
   <div>
@@ -33,7 +27,7 @@
   </div>
   <div class="form-outline mb-4">
     <input type="gender" id="form1Example2" class="form-control" placeholder="gender" [ngModel]="adingData.gender" name="gender"  />
-  </div>
-
-  <button type="submit" class="btn btn-primary btn-block">Submit Data</button>
+</div>
+  <button type="submit" class="btn btn-primary btn-block">Submit Data</button>&nbsp;
+  <button type="button" class="btn btn-danger btn-block"mat-dialog-close>close</button>
 </form>

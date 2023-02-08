@@ -1,5 +1,3 @@
-
-  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" mat-dialog-close></button>
 <form class="p-3 text-center" #employeeForm="ngForm" (ngSubmit)="onSubmit(employeeForm.value)" >
   <h3 class="text-center">Edit Employee Data</h3>
   <br>
@@ -30,5 +28,6 @@
   <div class="form-outline mb-3">
     <input type="gender"  class="form-control" placeholder="maidenName" [ngModel]="editData.gender" name="gender"  />
   </div>
-   <button type="submit" class="btn btn-primary btn-block">Submit Data</button>
+<button type="submit" class="btn btn-primary btn-block">Submit Data</button>&nbsp;
+<button type="button" class="btn btn-danger btn-block"mat-dialog-close>close</button>
 </form>
