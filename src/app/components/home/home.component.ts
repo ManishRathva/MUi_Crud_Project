@@ -17,28 +17,33 @@ export class HomeComponent implements OnInit{
 displayedColumns: string[] = ['id','image','firstName','lastName', 'maidenName','age','gender','Action'];
 employee:user['users']=[];
 dataSource = this.employee;
+jasonData:user['users']=[];
 
 @ViewChild(MatPaginator) paginator!:MatPaginator;
 @ViewChild(MatSort) sort!:MatSort;
-
-ngOnInit():void{
-}
-
 constructor(public dialog:MatDialog, private employeeService:EmployeeService){
  this.employeeService.getUser().subscribe((val:user[])=>{
   this.dataSource = val;
+  this.dataSource['users'] = this.jasonData.concat(this.dataSource['users']);
+  console.log(this.dataSource['users']);
+
   this.dataSource['users'] = new MatTableDataSource(this.dataSource['users']);
   this.dataSource['users'].paginator = this.paginator;
   this.dataSource['users'].sort = this.sort;
-})
-
+  // this.dataSource['users'].data = this.jasonData;
+});
+}
+ngOnInit():void{
+  this.getDatajson();
   }
+
  openDialog(){
    const dialogRef = this.dialog.open(AddEmployeeComponent)
    dialogRef.afterClosed().subscribe((result:any)=>{
+    console.log(result);
     if(result ===''){
     }else{
-      this.dataSource['users'].data.unshift(result);
+    this.dataSource['users'].data = result;
     }
   });
   }
@@ -51,14 +56,25 @@ filterValue = filterValue.toLowerCase();
 this.dataSource['users'].filter = filterValue;
 }
 deleteData(id:number){
-this.dataSource['users'].data = this.dataSource['users'].data.filter((val:any) =>
-val.id !== id);
+this.employeeService.deleteUser(id).subscribe(()=>{
+this.dataSource['users'].data = this.dataSource['users'].data.filter((val:any)=>
+ val.id !== id);
+ })
 }
  editData(data:Element){
  this.dialog.open(EditEmployeeComponent,{
   data
- });
-  }
+ });{
+  this.employeeService.updateUser(data).subscribe(()=>{
+    (data);
+  })
+ }
+}
+getDatajson(){
+  this.employeeService.getData().subscribe((val:any)=>{
+  this.jasonData = val;
+})
+}
 }
 
 
