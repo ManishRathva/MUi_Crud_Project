@@ -26,4 +26,7 @@ table {
   font-size: 14px;
   width: 100%;
 }
-
+mat-paginator{
+font-size: large;
+color:orangered
+}

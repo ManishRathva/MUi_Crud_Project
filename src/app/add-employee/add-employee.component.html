@@ -1,33 +1,33 @@
 <h3 mat-dialog-title class="text-center">Add Empoyee Data</h3>
-<form class="p-3 m-0 text-center" #employeeForm="ngForm" (ngSubmit)="addData(employeeForm.value)" >
+<form  class="p-3 m-0 text-center" [formGroup]="employeeForm" (ngSubmit)="addData(employeeForm.value)">
   <br>
   <div>
     <img class="addimg float-right" [src]="url" />
   </div>
   <div class="form-outline mb-4">
-    <input type="file" class="form-control"  (change)="onselectFile($event)" placeholder="firstName" ngModel name="image" />
+    <input formControlName="image" type="file" class="form-control"  (change)="onselectFile($event)" placeholder="image" name="image" />
   </div>
   <div class="row">
     <div class="col">
   <div class="form-outline mb-4">
-    <input type="firstName" id="form1Example1" class="form-control" placeholder="firstName" [ngModel]="adingData.firstName" name="firstName" />
+    <input formControlName="firstName" type="text"  class="form-control" placeholder="firstName"  name="firstName" />
   </div>
 </div>
 <div class="col">
   <div class="form-outline">
-    <input type="lastName" id="form1Example2" class="form-control" placeholder="lastName" [ngModel]="adingData.lastName" name="lastName"  />
+    <input formControlName="lastName" type="text"  class="form-control" placeholder="lastName" name="lastName"  />
   </div>
 </div>
 </div>
   <div class="form-outline mb-4">
-    <input type="maidenName" id="form1Example2" class="form-control" placeholder="maidenName" [ngModel]="adingData.maidenName" name="maidenName"  />
+    <input formControlName="maidenName" type="text" class="form-control" placeholder="maidenName" name="maidenName"  />
   </div>
   <div class="form-outline mb-4">
-    <input type="age" id="form1Example2" class="form-control" placeholder="age" [ngModel]="adingData.age" name="age"  />
+    <input formControlName="age" type="number"  class="form-control" placeholder="age"  name="age"  />
   </div>
   <div class="form-outline mb-4">
-    <input type="gender" id="form1Example2" class="form-control" placeholder="gender" [ngModel]="adingData.gender" name="gender"  />
+    <input formControlName="gender" type="text"  class="form-control" placeholder="gender" name="gender"  />
 </div>
-  <button type="submit" class="btn btn-primary btn-block">Submit Data</button>&nbsp;
+  <button type="submit" class="btn btn-primary btn-block" [disabled]="employeeForm.invalid">Submit Data</button>&nbsp;
   <button type="button" class="btn btn-danger btn-block"mat-dialog-close>close</button>
 </form>
