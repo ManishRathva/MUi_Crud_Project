@@ -9,11 +9,10 @@ import { user } from '../userdata';
   styleUrls: ['./edit-employee.component.css']
 })
 export class EditEmployeeComponent implements OnInit {
-  url = this.data.image;
+  url = '';
   editData:user['users']=[];
   constructor(private dialogRef:MatDialogRef<HomeComponent>, @Inject(MAT_DIALOG_DATA) public data:any){}
   ngOnInit(): void {
-
   this.editData = this.data;
 }
   onSubmit(data:any){

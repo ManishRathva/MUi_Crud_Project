@@ -45,18 +45,21 @@ ngOnInit(): void {
   }
 }
 addData(data:any){
- if(this.employeeForm.valid){
-  this.employeeService.addEmpData(data).subscribe((val:any)=>{
+// this.dialogRef.close( data);
+this.employeeService.addEmpData(data).subscribe((val)=>{
+  this.dialogRef.close(val)
+
+  // this.employeeService.addEmpData(this.employeeForm.value).subscribe((val:any)=>{
       alert("data added");
-     // this.employeeForm.reset();
-      this.adingData.image = val.image;
+      this.employeeForm.reset();
+      this.adingData.image = this.url;
       this.adingData.firstName = val.firstName;
       this.adingData.lastName = val.lastName;
       this.adingData.maidenName = val.maidenName;
       this.adingData.age = val.age;
       this.adingData.gender = val.gender;
-      this.dialogRef.close(this.adingData = val);
+      this.dialogRef.close(this.adingData);
       });
    }
   }
- }
+
