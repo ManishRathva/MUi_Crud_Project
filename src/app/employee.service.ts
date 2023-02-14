@@ -39,4 +39,7 @@ addEmpData(data:any){
  deletejson(id:number){
   return this.http.delete<user['users']>(`http://localhost:3000/employeedata/` +'/'+id);
   }
+  loginData(data:any){
+    return this.http.post<any>("http://localhost:3000/logindata/",data);
+  }
  }

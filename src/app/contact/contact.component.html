@@ -1,0 +1,106 @@
+<app-header></app-header>
+<section class="vh-100">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-12 col-md-8 col-lg-6 col-xl-6">
+        <div class="card shadow-2-strong" style="border-radius: 1rem;">
+          <div class="card-body p-5 text-center">
+            <div class="container text-center">
+                <form [formGroup]="loginForm" (ngSubmit)="login()">
+                  <h3>Contact Form</h3>
+                  <div class="row mt-3">
+                    <div class="col-6">
+                  <mat-form-field appearance="outline">
+                  <input type="text" matInput placeholder="firstName" formControlName="firstName">
+                  <mat-error *ngIf="hasError('firstName', 'minlength')">firstName must be 5 character</mat-error>
+                </mat-form-field>
+                  <div *ngIf="submitted && loginForm.controls['firstName'].errors?.['required']"><span style="color:red">firstName Required</span></div>
+                  <br>
+                </div>
+                <div class="col-6">
+                  <mat-form-field appearance="outline">
+                    <input type="text" matInput placeholder="lastName" formControlName="lastName">
+                    <mat-error *ngIf="hasError('lastName', 'minlength')">lastName must be 5 character</mat-error>
+                  </mat-form-field>
+                    <div *ngIf="submitted && loginForm.controls['lastName'].errors?.['required']"><span style="color:red">lastName Required</span></div>
+                    <br>
+                  </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6">
+                    <mat-form-field appearance="outline">
+                      <mat-label>Enter your email</mat-label>
+                      <input matInput placeholder="pat@example.com" formControlName="email">
+                      <mat-error *ngIf="hasError('email', 'email')">Email is not valid</mat-error>
+                    </mat-form-field>
+                    <div *ngIf="submitted && loginForm.controls['email'].errors?.['required']"><span style="color:red">Email Required</span></div>
+                    <br>
+                  </div>
+                  <div class="col-6">
+                    <mat-form-field appearance="outline">
+                      <mat-label>Enter your Password</mat-label>
+                     <input type="password" matInput placeholder="pat@example.com" formControlName="password">
+                     <mat-error *ngIf="hasError('password', 'minlength')">Enter Password must be 8 number</mat-error>
+                    </mat-form-field>
+                   <div *ngIf="submitted && loginForm.controls['password'].errors?.['required']"><span style="color:red">Password Required</span></div>
+                    <br>
+                  </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6">
+                    <mat-radio-group aria-label="Select Gender">
+                      <mat-radio-button value="1">Male</mat-radio-button>
+                      <mat-radio-button value="2">FeMale</mat-radio-button>
+                    </mat-radio-group>
+                    <br>
+                  </div>
+                  <div class="col-6">
+                    <mat-form-field appearance="outline">
+                      <mat-label>Select Langauge</mat-label>
+                      <mat-select formControlName="select">
+                        <mat-option value="one">Gujrati</mat-option>
+                        <mat-option value="two">Hindi</mat-option>
+                        <mat-option value="three">English</mat-option>
+                        <mat-option value="four">Marathi</mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                    <div *ngIf="submitted && loginForm.controls['select'].errors?.['required']"><span style="color:red">select Langauge</span></div>
+                    <br>
+                  </div>
+                  <div class="row">
+                  <div class="col-6">
+                    <mat-form-field appearance="outline">
+                      <mat-label>Select state</mat-label>
+                      <mat-select formControlName="select">
+                        <mat-option value="one">Gujrat</mat-option>
+                        <mat-option value="two">Bihar</mat-option>
+                        <mat-option value="three">Maharastra</mat-option>
+                        <mat-option value="four">Rajsthan</mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                    <div *ngIf="submitted && loginForm.controls['select'].errors?.['required']"><span style="color:red">select state</span></div>
+                    <br>
+                  </div>
+
+                  <div class="col-6">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                      <mat-label>Choose a date</mat-label>
+                      <input matInput [matDatepicker]="picker">
+                      <mat-datepicker-toggle matIconSuffix [for]="picker">
+                        <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+                      </mat-datepicker-toggle>
+                      <mat-datepicker #picker></mat-datepicker>
+                    </mat-form-field>
+                    <br>
+                  </div>
+                  </div>
+                </div>
+                  <button class="btn btn-primary btn-lg" type="submit">Submit</button>
+                </form>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

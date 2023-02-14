@@ -1,0 +1,21 @@
+<app-header></app-header>
+<div class="container text-center">
+  <div class="formdiv mt-5">
+    <form [formGroup]="loginForm" (ngSubmit)="login()">
+      <h4>Login Form</h4>
+      <mat-form-field appearance="outline">
+      <input type="email" matInput placeholder="Enter Email" formControlName="email">
+      <mat-error *ngIf="hasError('email', 'email')">Email is not valid</mat-error>
+    </mat-form-field>
+      <div *ngIf="submitted && loginForm.controls['email'].errors?.['required']"><span style="color:red">Email Required</span></div>
+      <br>
+      <mat-form-field appearance="outline">
+        <input type="password" matInput placeholder="Enter Password" formControlName="password">
+        <mat-error *ngIf="hasError('password', 'minlength')">Enter Password must be 8 number</mat-error>
+      </mat-form-field>
+        <div *ngIf="submitted && loginForm.controls['password'].errors?.['required']"><span style="color:red">Enter password</span></div>
+        <br>
+      <button class="btn btn-primary" type="submit">Submit</button>
+    </form>
+  </div>
+</div>

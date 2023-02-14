@@ -18,6 +18,13 @@ import {MatTableModule} from '@angular/material/table';
 import { MatInputModule } from '@angular/material/input';
 import { EditEmployeeComponent } from './edit-employee/edit-employee.component';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import { AboutsComponent } from './abouts/abouts.component';
+import { ContactComponent } from './contact/contact.component';
+import { LoginComponent } from './login/login.component';
+import {MatSelectModule} from '@angular/material/select';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import {MatRadioModule} from '@angular/material/radio';
 
 
 @NgModule({
@@ -28,6 +35,9 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     FooterComponent,
     AddEmployeeComponent,
     EditEmployeeComponent,
+    AboutsComponent,
+    ContactComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,7 +53,12 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     HttpClientModule,
     MatTableModule,
     MatInputModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatSelectModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatRadioModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
